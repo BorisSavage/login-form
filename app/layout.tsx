@@ -19,15 +19,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="relative" lang="en">
-      <BackgroundDots />
+    <html lang="en">
       <body className={inter.className}>
-        <div className="text-neutral-900 relative">
-          <Providers>
-            <Navbar />
-            <BreadcrumbNav />
-            {children}
-          </Providers>
+        <div className="relative">
+          <BackgroundDots />
+          <div className="text-neutral-900 relative">
+            <Providers>
+              <Navbar />
+              <BreadcrumbNav />
+              {children}
+            </Providers>
+          </div>
         </div>
       </body>
     </html>
