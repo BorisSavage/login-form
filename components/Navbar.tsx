@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { BarsArrowDownIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
+import { set } from "react-hook-form";
 
 const HOME_ROUTE = "/";
 const BUY_ROUTE = "/buy";
@@ -23,11 +24,15 @@ const REGISTER_ROUTE = "/register";
 
 export function Navbar() {
   const [show, setShow] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setShow(width >= 640);
+      if (width >= 640) {
+        setShow(true);
+        setIsMobile(false);
+      } else setIsMobile(true);
     };
 
     handleResize();
@@ -47,7 +52,7 @@ export function Navbar() {
           "sm:hidden",
           {
             "backdrop-blur-sm block": show,
-            "transition-none": window.innerWidth >= 640,
+            "transition-none": !isMobile,
           },
         )}
         onClick={() => setShow(!show)}
@@ -61,7 +66,7 @@ export function Navbar() {
           "after:hover:opacity-100",
           {
             "left-0 opacity-100 blur-none": show,
-            "transition-none": window.innerWidth >= 640,
+            "transition-none": !isMobile,
           },
         )}
       >
