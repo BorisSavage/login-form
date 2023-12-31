@@ -181,7 +181,7 @@ export function Navbar() {
       <BarsArrowDownIcon
         onClick={() => setShow(true)}
         className={cn(
-          "h-8 w-8 backdrop-blur-md z-50 backdrop-opacity-50 rounded-sm fixed bottom-4 left-4 text-neutral-900 transition-all duration-500",
+          "h-8 w-8 backdrop-blur-md z-50 rounded-sm fixed bottom-4 left-4 text-neutral-900 transition-all duration-500",
           "sm:hidden",
           {
             "opacity-0 -translate-y-4 blur-lg": show,

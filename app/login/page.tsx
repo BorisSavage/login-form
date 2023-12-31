@@ -4,19 +4,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
+import { Button } from "@nextui-org/button";
 import {
   Form,
   FormControl,
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Input } from "@nextui-org/input";
 
 const passwordErrorMessage = {
   message: "Password must be between 7 and 25 characters",
@@ -97,9 +97,8 @@ export default function Login() {
                 name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder="your username" {...field} />
+                      <Input label="Username" {...field} />
                     </FormControl>
                     {!usernameError && (
                       <FormDescription>
@@ -115,9 +114,8 @@ export default function Login() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email Address</FormLabel>
                     <FormControl>
-                      <Input placeholder="your email" {...field} />
+                      <Input label="Email" {...field} />
                     </FormControl>
                     {!emailError && (
                       <FormDescription>
@@ -134,9 +132,8 @@ export default function Login() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="your secret password" {...field} />
+                      <Input label="Password" {...field} />
                     </FormControl>
                     {!passwordError && (
                       <FormDescription>
@@ -156,19 +153,26 @@ export default function Login() {
                     Forgot password?
                   </Link>
                 </div>
-                <Button type="submit">Login</Button>
+                <Button
+                  className="bg-neutral-400 font-bold px-12"
+                  type="submit"
+                >
+                  Login
+                </Button>
               </div>
             </form>
           </Form>
 
           <div
             className={cn(
-              "flex text-sm font-medium flex-col space-y-2 items-center justify-center",
+              "flex text-sm font-medium py-12 flex-col space-y-2 items-center justify-center",
               "lg:w-[calc(33.33%+2rem)] lg:pl-2",
             )}
           >
             <span className="block text-center">Not a member?</span>
-            <Button type="submit">Register today</Button>
+            <Button className="bg-neutral-400 font-bold px-12" type="submit">
+              Register today
+            </Button>
           </div>
         </div>
       </div>
