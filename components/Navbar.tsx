@@ -13,7 +13,6 @@ import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { BarsArrowDownIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
-import { set } from "react-hook-form";
 
 const HOME_ROUTE = "/";
 const BUY_ROUTE = "/buy";
@@ -24,7 +23,7 @@ const REGISTER_ROUTE = "/register";
 
 export function Navbar() {
   const [show, setShow] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -70,7 +69,7 @@ export function Navbar() {
           },
         )}
       >
-        <div className="flex h-10 items-center justify-start text-sm">
+        <div className="flex h-10 pr-2 items-center justify-start text-sm">
           <Link
             className="flex items-center justify-start font-bold text-slate-900 transition duration-500 dark:text-slate-100"
             href="/"
