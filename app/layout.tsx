@@ -22,8 +22,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="text-neutral-900">
           <Providers>
-            <BreadcrumbNav />
             <Navbar />
+            <BreadcrumbNav />
             {children}
           </Providers>
         </div>

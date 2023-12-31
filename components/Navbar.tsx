@@ -43,7 +43,7 @@ export function Navbar() {
       />
       <div
         className={cn(
-          "z-50 top-0 absolute -left-full transition-all opacity-0 blur-lg duration-500 ease-in-out w-fit flex flex-col h-[100svh] items-center sm:w-full justify-start space-y-2 px-2 pt-1 pb-8 text-sm",
+          "z-50 top-0 fixed -left-full transition-all opacity-0 blur-lg duration-500 ease-in-out w-fit flex flex-col h-[100svh] items-center sm:w-full justify-start space-y-2 px-2 pt-1 pb-8 text-sm",
           "sm:flex-row sm:top-0 sm:pt-0 sm:items-end sm:space-x-2 sm:justify-between sm:h-fit sm:text-base sm:pb-2 sm:w-full",
           "after:absolute after:right-0 after:top-0 after:block after:w-[1px] after:h-full after:bg-gradient-to-t after:from-neutral-900 after:via-neutral-900/50 after:to-neutral-900 after:opacity-80 after:transition after:duration-500 after:content-['']",
           "after:sm:h-[1px] after:sm:w-full after:sm:top-full after:sm:bg-gradient-to-r after:sm:from-transparent after:sm:from-35% after:sm:via-current after:sm:to-neutral-900",
@@ -172,7 +172,7 @@ export function Navbar() {
           "h-8 w-8 backdrop-blur-md z-50 backdrop-opacity-50 rounded-sm fixed bottom-4 left-4 text-neutral-900 transition-all duration-500",
           "sm:hidden",
           {
-            "opacity-0 translate-y-4 blur-lg": show,
+            "opacity-0 -translate-y-4 blur-lg": show,
           },
         )}
       />

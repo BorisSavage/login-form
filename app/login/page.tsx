@@ -56,7 +56,7 @@ export default function Login() {
   return (
     <main
       className={cn(
-        "flex min-h-screen flex-col items-center justify-start space-y-12 pt-12 pb-24 px-4",
+        "flex min-h-screen flex-col items-center justify-start space-y-12 pt-10 pb-24 px-4",
         "lg:space-y-4",
       )}
     >

@@ -12,7 +12,7 @@ export default function BreadcrumbNav() {
   const pathNames = paths.split("/").filter((path) => path);
   if (pathNames.length === 0) return null;
   return (
-    <div className="px-4 w-full flex items-center justify-center">
+    <div className="absolute top-0 left-0 px-4 w-full flex items-center justify-center">
       <div className="relative grow pt-14 max-w-5xl px-2">
         <Breadcrumbs>
           <BreadcrumbItem href="/" key="home">
