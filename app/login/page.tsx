@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const passwordErrorMessage = {
   message: "Password must be between 7 and 25 characters",
@@ -53,15 +54,43 @@ export default function Login() {
   const passwordError = form.formState.errors.password;
 
   return (
-    <main className="flex min-h-screen flex-col items-stretch justify-start space-y-12 pt-12 pb-24 px-4">
-      <h1 className="text-center text-3xl font-bold">Login</h1>
-      <div className="relative">
-        <div className="absolute inset-x-8 -inset-y-8 bg-blue-500 -skew-y-6"></div>
-        <div className="relative border bg-neutral-100 p-2 space-y-4">
+    <main
+      className={cn(
+        "flex min-h-screen flex-col items-center justify-start space-y-12 pt-24 pb-24 px-4",
+        "lg:space-y-4",
+      )}
+    >
+      <div
+        className={cn(
+          "text-center max-w-xl w-full",
+          "lg:max-w-5xl lg:text-left lg:px-2",
+        )}
+      >
+        <h1 className={cn("text-3xl font-bold")}>
+          <span className="underline decoration-blue-500 underline-offset-4">
+            Logi
+          </span>
+          <span>n</span>
+        </h1>
+        <p className="font-medium">To access your account</p>
+      </div>
+      <div className={cn("relative max-w-xl w-full", "lg:max-w-5xl")}>
+        <div
+          className={cn(
+            "absolute left-8 right-8 -inset-y-8 bg-blue-500 -skew-y-6",
+            "lg:left-2/3",
+          )}
+        ></div>
+        <div
+          className={cn(
+            "relative items-center justify-center border bg-neutral-100 p-2 space-y-4",
+            "lg:flex lg:justify-around",
+          )}
+        >
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-8 border p-4 bg-neutral-300"
+              className={cn("space-y-8 border p-4 bg-neutral-200", "lg:grow")}
             >
               <FormField
                 control={form.control}
@@ -132,7 +161,12 @@ export default function Login() {
             </form>
           </Form>
 
-          <div className="flex text-sm font-medium flex-col space-y-2 items-center justify-center">
+          <div
+            className={cn(
+              "flex text-sm font-medium flex-col space-y-2 items-center justify-center",
+              "lg:w-[calc(33.33%+2rem)] lg:pl-2",
+            )}
+          >
             <span className="block text-center">Not a member?</span>
             <Button type="submit">Register today</Button>
           </div>
