@@ -174,7 +174,7 @@ export function Navbar() {
         </NavigationMenu>
         <XMarkIcon
           className={cn(
-            "absolute top-1/2 right-0 -translate-y-1/2 translate-x-[200%] transition duration-500 blur-lg opacity-0 pointer-events-none h-8 w-8",
+            "absolute top-1/2 right-0 -translate-y-1/2 translate-x-[200%] transition duration-500 blur-lg opacity-0 pointer-events-none h-10 w-10",
             "sm:hidden",
             {
               "opacity-100 blur-none translate-x-[150%]": show,
@@ -182,16 +182,20 @@ export function Navbar() {
           )}
         />
       </div>
-      <BarsArrowDownIcon
-        onClick={() => setShow(true)}
+      <div
         className={cn(
-          "h-8 w-8 backdrop-blur-md z-50 rounded-sm fixed bottom-4 left-4 text-neutral-900 transition-all duration-500",
+          "flex rounded-sm items-center fixed transition-all duration-500 bottom-4 left-4 backdrop-blur-md z-40 justify-center p-0.5",
           "sm:hidden",
           {
             "opacity-0 -translate-y-4 blur-lg": show,
           },
         )}
-      />
+      >
+        <BarsArrowDownIcon
+          onClick={() => setShow(true)}
+          className={cn("h-10 w-10 text-neutral-900")}
+        />
+      </div>
     </>
   );
 }
