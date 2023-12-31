@@ -43,7 +43,7 @@ export function Navbar() {
     <>
       <div
         className={cn(
-          "absolute transition hidden duration-500 top-0 left-0 h-[100dvh] w-[100dvw] z-10",
+          "fixed transition hidden duration-500 top-0 left-0 h-[100dvh] w-[100dvw] z-10",
           "sm:hidden",
           {
             "backdrop-blur-sm block": show,
@@ -54,13 +54,14 @@ export function Navbar() {
       />
       <div
         className={cn(
-          "z-50 top-0 fixed -left-full transition-all opacity-0 blur-lg duration-500 ease-in-out w-fit flex flex-col h-[100svh] items-center sm:w-full justify-start space-y-2 px-2 pt-1 pb-8 text-sm",
+          "z-50 top-0 fixed backdrop-blur-md -left-full transition-all opacity-0 blur-lg duration-500 ease-in-out w-fit flex flex-col h-[100svh] items-center sm:w-full justify-start space-y-2 px-2 pt-1 pb-8 text-sm",
           "sm:flex-row sm:top-0 sm:pt-0 sm:items-end sm:space-x-2 sm:justify-between sm:h-fit sm:text-base sm:pb-2 sm:w-full",
           "after:absolute after:right-0 after:top-0 after:block after:w-[1px] after:h-full after:bg-gradient-to-t after:from-neutral-900 after:via-neutral-900/50 after:to-neutral-900 after:opacity-80 after:transition after:duration-500 after:content-['']",
           "after:sm:h-[1px] after:sm:w-full after:sm:top-full after:sm:bg-gradient-to-r after:sm:from-transparent after:sm:from-35% after:sm:via-current after:sm:to-neutral-900",
           "after:hover:opacity-100",
           {
             "left-0 opacity-100 blur-none": show,
+            "transition-none": window.innerWidth >= 640,
           },
         )}
       >
