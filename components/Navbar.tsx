@@ -25,8 +25,18 @@ export function Navbar() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const width = window.innerWidth;
-    if (width >= 640) setShow(true);
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setShow(width >= 640);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -37,6 +47,7 @@ export function Navbar() {
           "sm:hidden",
           {
             "backdrop-blur-sm block": show,
+            "transition-none": window.innerWidth >= 640,
           },
         )}
         onClick={() => setShow(!show)}
