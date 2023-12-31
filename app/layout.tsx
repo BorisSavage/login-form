@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
+import BackgroundDots from "@/components/BackgroundDots";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html className="relative" lang="en">
+      <BackgroundDots />
       <body className={inter.className}>
         <div className="text-neutral-900">
           <Providers>
