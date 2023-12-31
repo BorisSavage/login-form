@@ -44,13 +44,13 @@ export function Navbar() {
       <div className="absolute w-fit sm:w-full flex items-center justify-start z-50 top-0 left-0">
         <div
           className={cn(
-            "relative -top-24 transition-all opacity-0 blur-lg duration-500 ease-in-out w-fit flex flex-col h-[100svh] items-center justify-start space-y-2 px-2 pt-1 pb-8 text-sm",
+            "relative -left-full transition-all opacity-0 blur-lg duration-500 ease-in-out w-fit flex flex-col h-[100svh] items-center justify-start space-y-2 px-2 pt-1 pb-8 text-sm",
             "sm:flex-row sm:top-0 sm:pt-0 sm:items-end sm:space-x-2 sm:justify-between sm:h-fit sm:text-base sm:pb-2 sm:w-full",
             "after:absolute after:right-0 after:top-0 after:block after:w-[1px] after:h-full after:bg-gradient-to-t after:from-neutral-900 after:via-neutral-900/50 after:to-neutral-900 after:opacity-80 after:transition after:duration-500 after:content-['']",
             "after:sm:h-[1px] after:sm:w-full after:sm:top-full after:sm:bg-gradient-to-r after:sm:from-transparent after:sm:from-35% after:sm:via-current after:sm:to-neutral-900",
             "after:hover:opacity-100",
             {
-              "top-0 opacity-100 blur-none": show,
+              "left-0 opacity-100 blur-none": show,
             },
           )}
         >
