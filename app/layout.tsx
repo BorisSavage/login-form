@@ -22,7 +22,7 @@ export default function RootLayout({
     <html className="relative" lang="en">
       <BackgroundDots />
       <body className={inter.className}>
-        <div className="text-neutral-900">
+        <div className="text-neutral-900 relative">
           <Providers>
             <Navbar />
             <BreadcrumbNav />

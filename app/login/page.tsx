@@ -17,6 +17,9 @@ import {
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Input } from "@nextui-org/input";
+import { useState } from "react";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
+import { divider } from "@nextui-org/react";
 
 const passwordErrorMessage = {
   message: "Password must be between 7 and 25 characters",
@@ -36,6 +39,10 @@ const formSchema = z.object({
 });
 
 export default function Login() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => setIsVisible(!isVisible);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -133,7 +140,26 @@ export default function Login() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input label="Password" {...field} />
+                      <Input
+                        type={isVisible ? "text" : "password"}
+                        label="Password"
+                        {...field}
+                        endContent={
+                          <div className="h-full flex flex-col justify-center">
+                            <button
+                              className="focus:outline-none"
+                              type="button"
+                              onClick={toggleVisibility}
+                            >
+                              {isVisible ? (
+                                <EyeIcon className="h-6 w-6 text-default-400 pointer-events-none" />
+                              ) : (
+                                <EyeSlashIcon className="h-6 w-6 text-default-400 pointer-events-none" />
+                              )}{" "}
+                            </button>
+                          </div>
+                        }
+                      />
                     </FormControl>
                     {!passwordError && (
                       <FormDescription>
