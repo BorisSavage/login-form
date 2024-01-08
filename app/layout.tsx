@@ -19,18 +19,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="relative">
+    <html suppressHydrationWarning lang="en">
+      <body
+        className={`${inter.className} text-neutral-900 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-900 relative`}
+      >
+        <Providers attribute="class" defaultTheme="light">
           <BackgroundDots />
-          <div className="text-neutral-900 relative">
-            <Providers>
-              <Navbar />
-              <BreadcrumbNav />
-              {children}
-            </Providers>
+          <div className="relative">
+            <Navbar />
+            <BreadcrumbNav />
+            {children}
           </div>
-        </div>
+        </Providers>
       </body>
     </html>
   );

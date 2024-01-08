@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { BarsArrowDownIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const HOME_ROUTE = "/";
 const BUY_ROUTE = "/buy";
@@ -61,21 +62,23 @@ export function Navbar() {
           "z-50 top-0 fixed backdrop-blur-md -left-full transition-all opacity-0 blur-lg duration-500 ease-in-out w-fit flex flex-col h-[100svh] items-center sm:w-full justify-start space-y-2 px-2 pt-1 pb-8 text-sm",
           "sm:flex-row sm:top-0 sm:pt-0 sm:items-end sm:space-x-2 sm:justify-between sm:h-fit sm:text-base sm:pb-2 sm:w-full",
           "after:absolute after:right-0 after:top-0 after:block after:w-[1px] after:h-full after:bg-gradient-to-t after:from-neutral-900 after:via-neutral-900/50 after:to-neutral-900 after:opacity-80 after:transition after:duration-500 after:content-['']",
-          "after:sm:h-[1px] after:sm:w-full after:sm:top-full after:sm:bg-gradient-to-r after:sm:from-transparent after:sm:from-35% after:sm:via-current after:sm:to-neutral-900",
+          "dark:after:from-neutral-100 dark:after:via-neutral-100/50 dark:after:to-neutral-100",
+          "sm:dark:after:from-transparent sm:dark:after:to-neutral-100",
+          "after:sm:h-[1px] after:sm:from-transparent after:sm:w-full after:sm:top-full after:sm:bg-gradient-to-r after:sm:from-35% after:sm:to-neutral-900",
           "after:hover:opacity-100",
           {
             "left-0 opacity-100 blur-none": show,
-            "transition-none": !isMobile,
+            "transition-colors": !isMobile,
           },
         )}
       >
         <div className="flex h-10 pr-2 items-center justify-start text-sm">
           <Link
-            className="flex items-center justify-start font-bold text-slate-900 transition duration-500 dark:text-slate-100"
+            className="flex items-center justify-start font-bold text-neutral-900 transition duration-500 dark:text-neutral-100"
             href="/"
           >
             <Logo />
-            ACME
+            <span className="transition duration-500">ACME</span>
           </Link>
         </div>
         <NavigationMenu
@@ -95,7 +98,7 @@ export function Navbar() {
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "bg-transparent",
+                      "bg-transparent dark:hover:bg-neutral-800 hover:bg-neutral-200",
                     )}
                   >
                     Home
@@ -107,7 +110,7 @@ export function Navbar() {
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "bg-transparent",
+                      "bg-transparent dark:hover:bg-neutral-800 hover:bg-neutral-200",
                     )}
                   >
                     Buy
@@ -119,7 +122,7 @@ export function Navbar() {
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "bg-transparent",
+                      "bg-transparent dark:hover:bg-neutral-800 hover:bg-neutral-200",
                     )}
                   >
                     Sell
@@ -131,7 +134,7 @@ export function Navbar() {
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "bg-transparent",
+                      "bg-transparent dark:hover:bg-neutral-800 hover:bg-neutral-200",
                     )}
                   >
                     About
@@ -145,12 +148,13 @@ export function Navbar() {
                 "sm:flex sm:space-y-0 sm:space-x-2",
               )}
             >
+              <ThemeSwitcher />
               <NavigationMenuItem>
                 <Link href={REGISTER_ROUTE} legacyBehavior passHref>
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "border border-neutral-200 bg-neutral-100",
+                      "border border-neutral-200 dark:border-neutral-800 bg-transparent dark:hover:bg-neutral-800 hover:bg-neutral-200",
                     )}
                   >
                     Register
@@ -162,10 +166,15 @@ export function Navbar() {
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      "border border-neutral-400 bg-neutral-300",
+                      "border border-neutral-400  dark:border-neutral-600 bg-neutral-300 hover:bg-blue-500  dark:hover:bg-amber-500 dark:bg-neutral-700",
                     )}
                   >
-                    Login
+                    <div className="relative">
+                      <div className="absolute top-0 left-0 select-none blur-[1px] text-neutral-100 dark:text-neutral-900">
+                        Login
+                      </div>
+                      <span className="relative">Login</span>
+                    </div>
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -193,7 +202,7 @@ export function Navbar() {
       >
         <BarsArrowDownIcon
           onClick={() => setShow(true)}
-          className={cn("h-10 w-10 text-neutral-900")}
+          className={cn("h-10 w-10 text-neutral-900 dark:text-neutral-100")}
         />
       </div>
     </>

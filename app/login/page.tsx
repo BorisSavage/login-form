@@ -15,10 +15,11 @@ export default function Login() {
           "lg:max-w-5xl lg:text-left lg:px-2",
         )}
       >
-        <h1 className={cn("text-3xl font-bold")}>
-          <span className="underline decoration-blue-500 underline-offset-4">
+        <h1 className={cn("text-3xl relative font-bold")}>
+          <span className="underline text-transparent absolute select-none decoration-blue-500 transition duration-1000 dark:decoration-amber-500 underline-offset-4">
             Logi
           </span>
+          <span className="relative">Logi</span>
           <span>n</span>
         </h1>
         <p className="font-medium">To access your account</p>

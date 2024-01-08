@@ -11,6 +11,7 @@ export const Logo: React.FC<IconSvgProps> = ({
   ...props
 }) => (
   <svg
+    className="transition duration-500"
     fill="none"
     height={size || height}
     viewBox="0 0 32 32"

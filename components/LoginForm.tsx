@@ -62,20 +62,23 @@ export default function LoginForm() {
     <div className={cn("relative max-w-xl w-full", "lg:max-w-5xl")}>
       <div
         className={cn(
-          "absolute left-8 right-8 -inset-y-8 bg-blue-500 -skew-y-6",
+          "absolute left-8 right-8 -inset-y-8 bg-blue-500 dark:bg-amber-500 transition duration-1000 -skew-y-6",
           "lg:left-2/3",
         )}
       ></div>
       <div
         className={cn(
-          "relative items-center justify-center border bg-neutral-100 p-2 space-y-4",
+          "relative items-center justify-center border bg-neutral-100 dark:bg-neutral-900 p-2 space-y-4",
           "lg:flex lg:justify-around",
         )}
       >
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className={cn("space-y-8 border p-4 bg-neutral-200", "lg:grow")}
+            className={cn(
+              "space-y-8 border p-4 bg-neutral-200 dark:bg-neutral-800",
+              "lg:grow",
+            )}
           >
             <FormField
               control={form.control}
@@ -83,7 +86,15 @@ export default function LoginForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input label="Username" {...field} />
+                    <Input
+                      classNames={{
+                        inputWrapper: [
+                          "outline dark:outline-1 outline-0 group-hover:bg-neutral-50 dark:group-hover:bg-neutral-700 dark:outline-neutral-600",
+                        ],
+                      }}
+                      label="Username"
+                      {...field}
+                    />
                   </FormControl>
                   {!usernameError && (
                     <FormDescription>
@@ -100,7 +111,15 @@ export default function LoginForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input label="Email" {...field} />
+                    <Input
+                      classNames={{
+                        inputWrapper: [
+                          "outline dark:outline-1 outline-0 group-hover:bg-neutral-50 dark:group-hover:bg-neutral-700 dark:outline-neutral-600",
+                        ],
+                      }}
+                      label="Email"
+                      {...field}
+                    />
                   </FormControl>
                   {!emailError && (
                     <FormDescription>
@@ -119,6 +138,11 @@ export default function LoginForm() {
                 <FormItem>
                   <FormControl>
                     <Input
+                      classNames={{
+                        inputWrapper: [
+                          "outline dark:outline-1 outline-0 group-hover:bg-neutral-50 dark:group-hover:bg-neutral-700 dark:outline-neutral-600",
+                        ],
+                      }}
                       type={isVisible ? "text" : "password"}
                       label="Password"
                       {...field}
@@ -130,10 +154,10 @@ export default function LoginForm() {
                             onClick={toggleVisibility}
                           >
                             {isVisible ? (
-                              <EyeIcon className="h-6 w-6 text-default-400 pointer-events-none" />
+                              <EyeIcon className="h-6 w-6 text-default-400" />
                             ) : (
-                              <EyeSlashIcon className="h-6 w-6 text-default-400 pointer-events-none" />
-                            )}{" "}
+                              <EyeSlashIcon className="h-6 w-6 text-default-400" />
+                            )}
                           </button>
                         </div>
                       }
@@ -157,7 +181,10 @@ export default function LoginForm() {
                   Forgot password?
                 </Link>
               </div>
-              <Button className="bg-neutral-400 font-bold px-12" type="submit">
+              <Button
+                className="bg-neutral-400 dark:bg-neutral-600 font-bold px-12"
+                type="submit"
+              >
                 Login
               </Button>
             </div>
@@ -171,7 +198,10 @@ export default function LoginForm() {
           )}
         >
           <span className="block text-center">Not a member?</span>
-          <Button className="bg-neutral-400 font-bold px-12" type="submit">
+          <Button
+            className="bg-neutral-400 dark:bg-neutral-600 font-bold px-12"
+            type="submit"
+          >
             Register today
           </Button>
         </div>
